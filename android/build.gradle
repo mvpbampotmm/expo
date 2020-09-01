@@ -63,6 +63,10 @@ allprojects {
       // Local Maven repo containing our cameraview
       url "$rootDir/../node_modules/expo-camera/android/maven"
     }
+    maven {
+      // Special case for Turtle workspace where unimodules aren't linked
+      url "$rootDir/../packages/expo-camera/android/maven"
+    }
     flatDir {
       dirs 'libs'
       // dirs project(':expoview').file('libs')
