@@ -239,13 +239,7 @@
 - **Android**:
   - The process for building a standalone app locally is to publish the app you want to build and then run `et android-shell-app --url <url> --sdkVersion XX.X.X`.
 - **iOS**:
-  - The easiest way for now is to eject to ExpoKit and then build the resulting project. ExpoKit is not yet published (there is no new tag on GitHub) so use the current commit hash instead in `Podfile` under ExpoKit dependency.
-    > This is not currently possible to test `standalone`/`ejected to ExpoKit` app in `expo` repository scope.
-    > One way is to:
-    >
-    > - copy `apps/native-components-list`/`test-suite` app outside repository scope and perform `eject to ExpoKit`,
-    > - use ExpoKit commit hash in Podfile,
-    > - install each unimodule specified in `package.json` from specific commit hash.
+  - In theory it should be possible to run `et ios-shell-app --url <url> --sdkVersion XX.X.X` + some more options to create a workspace that should be buildable in Xcode. Good luck!
 
 ## 2.3. Web Quality Assurance
 
