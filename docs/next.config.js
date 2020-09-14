@@ -34,6 +34,16 @@ module.exports = withCSS({
     };
     return config;
   },
+  // Enable CORS headers in development to allow interacting with Snack
+  async headers() {
+    return [{
+      source: '/(.*)',
+      headers: [
+        { key: 'Access-Control-Allow-Origin', value: '*' },
+        { key: 'Access-Control-Allow-Headers', value: '*' },
+      ],
+    }];
+  },
   async exportPathMap(defaultPathMap, { dev, dir, outDir }) {
     if (dev) {
       return defaultPathMap;
