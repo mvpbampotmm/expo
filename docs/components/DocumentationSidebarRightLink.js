@@ -87,28 +87,30 @@ const trimCodedTitle = str => {
   return str;
 };
 
-const DocumentationSidebarRightLink = ({ heading, isActive, shortenCode }) => {
-  const { slug, level, title, type } = heading;
+const DocumentationSidebarRightLink = React.forwardRef(
+  ({ heading, isActive, shortenCode }, ref) => {
+    const { slug, level, title, type } = heading;
 
-  const paddingLeft = NESTING_OFFSET * (level - BASE_HEADING_LEVEL) + 'px';
-  const linkBaseStyle = level <= BASE_HEADING_LEVEL ? STYLES_LINK : STYLES_LINK_NESTED;
+    const paddingLeft = NESTING_OFFSET * (level - BASE_HEADING_LEVEL) + 'px';
+    const linkBaseStyle = level <= BASE_HEADING_LEVEL ? STYLES_LINK : STYLES_LINK_NESTED;
 
-  const isCode = type === HeadingType.InlineCode;
-  const displayTitle = shortenCode && isCode ? trimCodedTitle(title) : title;
-  const linkFont = isCode ? Constants.fontFamilies.mono : undefined;
-  const fontSize = isCode ? 14 : undefined;
+    const isCode = type === HeadingType.InlineCode;
+    const displayTitle = shortenCode && isCode ? trimCodedTitle(title) : title;
+    const linkFont = isCode ? Constants.fontFamilies.mono : undefined;
+    const fontSize = isCode ? 14 : undefined;
 
-  return (
-    <div className={STYLES_ACTIVE_CONTAINER}>
-      {isActive && <div className={STYLES_ACTIVE_BULLET} />}
-      <a
-        style={{ paddingLeft, fontFamily: linkFont, fontSize }}
-        href={'#' + slug}
-        className={`${linkBaseStyle} ${isActive ? STYLES_LINK_ACTIVE : STYLES_LINK_DEFAULT}`}>
-        {displayTitle}
-      </a>
-    </div>
-  );
-};
+    return (
+      <div className={STYLES_ACTIVE_CONTAINER} ref={ref}>
+        {isActive && <div className={STYLES_ACTIVE_BULLET} />}
+        <a
+          style={{ paddingLeft, fontFamily: linkFont, fontSize }}
+          href={'#' + slug}
+          className={`${linkBaseStyle} ${isActive ? STYLES_LINK_ACTIVE : STYLES_LINK_DEFAULT}`}>
+          {displayTitle}
+        </a>
+      </div>
+    );
+  }
+);
 
 export default DocumentationSidebarRightLink;
