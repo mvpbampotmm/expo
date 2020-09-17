@@ -11,6 +11,7 @@ title: Introduction
 - [EAS Build from scratch in 5 minutes](../eas-build-in-5-minutes/) - This is a step-by-step tutorial that will guide you through initializing a new project and kicking off a build in less than 5 mintues. If you want to experiment with EAS Build before integrating it with your existing project, this is a good place to start.
 - [Set up your project and environment](../setup/) - Get your existing project ready to build.
 - [Configuration with eas.json](../eas-json/) - Learn about configuring your build workflows with the `eas.json` file.
+- [Internal distribution](../internal-distribution/) - Share runnable builds with your team without going through TestFlight or Google Play Beta.
 - [Android build process](../android-builds/) - See how Android builds work under the hood.
 - [iOS build process](../ios-builds/) - See how iOS builds work under the hood.
 - [Advanced credentials configuration](../advanced-credentials-configuration/) - Use your existing app's credentials or streamline the CI build process with `credentials.json`.
