@@ -88,7 +88,7 @@ const trimCodedTitle = str => {
 };
 
 const DocumentationSidebarRightLink = React.forwardRef(
-  ({ heading, isActive, shortenCode }, ref) => {
+  ({ heading, isActive, shortenCode, onClick }, ref) => {
     const { slug, level, title, type } = heading;
 
     const paddingLeft = NESTING_OFFSET * (level - BASE_HEADING_LEVEL) + 'px';
@@ -105,6 +105,7 @@ const DocumentationSidebarRightLink = React.forwardRef(
         <a
           style={{ paddingLeft, fontFamily: linkFont, fontSize }}
           href={'#' + slug}
+          onClick={onClick}
           className={`${linkBaseStyle} ${isActive ? STYLES_LINK_ACTIVE : STYLES_LINK_DEFAULT}`}>
           {displayTitle}
         </a>
