@@ -3,7 +3,6 @@ const { copySync, removeSync } = require('fs-extra');
 const { join } = require('path');
 const semver = require('semver');
 
-const headings = require('./common/headingsMdPlugin');
 const { version } = require('./package.json');
 
 // copy versions/v(latest version) to versions/latest
@@ -32,7 +31,11 @@ module.exports = withCSS({
         babelMdxLoader,
         {
           loader: '@mdx-js/loader',
-          options: { remarkPlugins: [headings] },
+          options: {
+            remarkPlugins: [
+              /* headingsMdPlugin */
+            ],
+          },
         },
         join(__dirname, './common/md-loader'),
       ],
